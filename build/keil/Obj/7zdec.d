@@ -1,0 +1,14 @@
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\7zDec.c
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Precomp.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Compiler.h
+.\build\keil\obj\7zdec.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\7z.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\7zTypes.h
+.\build\keil\obj\7zdec.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\7zCrc.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Bcj2.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Bra.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\CpuArch.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Delta.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\LzmaDec.h
+.\build\keil\obj\7zdec.o: packages\ota_diff\lzma\3rdparty\Lzma2Dec.h

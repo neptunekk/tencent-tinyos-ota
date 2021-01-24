@@ -1,0 +1,20 @@
+from building import *
+
+cwd = GetCurrentDir()
+
+src = Split('''
+''')
+
+src += Glob('lzma/3rdparty/*.c')
+src += Glob('lzma/wrapper/lzma_uncompress.c')
+src += Glob('recovery/*.c')
+
+path =  [cwd]
+path += [cwd + '/lzma/3rdparty']
+path += [cwd + '/lzma/wrapper']
+path += [cwd + '/recovery']
+path += [cwd + '/recovery/include']
+
+group = DefineGroup('bsdiff_ota', src, depend = ['PKG_USING_BSDIFF_OTA'], CPPPATH = path)
+
+Return('group')

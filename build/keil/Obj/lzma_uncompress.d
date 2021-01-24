@@ -1,0 +1,10 @@
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\wrapper\lzma_uncompress.c
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\wrapper\lzma_uncompress.h
+.\build\keil\obj\lzma_uncompress.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\wrapper\lzma_err.h
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\3rdparty\7zTypes.h
+.\build\keil\obj\lzma_uncompress.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\3rdparty\Alloc.h
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\3rdparty\LzmaDec.h
+.\build\keil\obj\lzma_uncompress.o: packages\ota_diff\lzma\3rdparty\LzmaEnc.h
+.\build\keil\obj\lzma_uncompress.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
