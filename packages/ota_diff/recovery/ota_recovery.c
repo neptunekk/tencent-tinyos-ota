@@ -215,8 +215,6 @@ __exit:
 
 
 
-
-
 ota_err_t ota_recovery(void)
 {
     ota_err_t ret;
@@ -249,9 +247,18 @@ ota_err_t ota_recovery(void)
         return OTA_ERR_RECOVERRY_FAIL;
     }
 
+	/* update current version */
+	if ((ret = ota_info_current_version_update(&img_hdr.new_version)) != FDB_NO_ERR) {
+        return ret;
+    }
+	memcpy(&ota_info->new_version, &img_hdr.new_version, sizeof(ota_img_vs_t));
+
+	/* make sure new version invalid */
+	memset(&img_hdr.new_version, 0, sizeof(ota_img_vs_t));
     if ((ret = ota_info_new_version_update(&img_hdr.new_version)) != OTA_ERR_NONE) {
         return ret;
     }
+	memcpy(&ota_info->new_version, &img_hdr.new_version, sizeof(ota_img_vs_t));
 
     return OTA_ERR_NONE;
 }

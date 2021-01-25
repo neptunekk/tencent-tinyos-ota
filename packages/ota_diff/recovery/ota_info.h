@@ -62,6 +62,7 @@ int ota_info_init(void);
 ota_info_tag_t *ota_info_get(void);
 ota_err_t ota_info_current_version_get(ota_img_vs_t *new_version);
 ota_err_t ota_info_new_version_get(ota_img_vs_t *new_version);
+ota_err_t ota_info_current_version_update(ota_img_vs_t *current_version);
 ota_err_t ota_info_new_version_update(ota_img_vs_t *new_version);
 int ota_partition_is_pingpong(void);
 

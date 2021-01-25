@@ -1,9 +1,0 @@
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Lzma86Dec.c
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Precomp.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Compiler.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Lzma86.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\7zTypes.h
-.\build\keil\obj\lzma86dec.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Alloc.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\Bra.h
-.\build\keil\obj\lzma86dec.o: packages\ota_diff\lzma\3rdparty\LzmaDec.h

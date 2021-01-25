@@ -99,7 +99,7 @@ int ota_info_init(void)
 	} else {
 		/* no new image,make sure new version is invalid */
 		new_version.major = 0;
-		new_version.minor = 2;
+		new_version.minor = 0;
         
         read_len = fdb_kv_set_blob(&ota_kvdb, OTA_KV_BLOB_NEW_VERSION, 
 			fdb_blob_make(&blob, &new_version, sizeof(ota_img_vs_t)));
@@ -154,25 +154,54 @@ ota_err_t ota_info_new_version_get(ota_img_vs_t *new_version)
 }
 
 
-ota_err_t ota_info_new_version_update(ota_img_vs_t *new_version)
+ota_err_t ota_info_current_version_update(ota_img_vs_t *current_version)
 {
     fdb_err_t result = FDB_NO_ERR;
     size_t read_len;
     struct fdb_blob blob;
+	ota_img_vs_t readback_version;
 
-    result = fdb_kv_set_blob(&ota_kvdb, OTA_KV_BLOB_NEW_VERSION, fdb_blob_make(&blob, NULL, 0));
+    result = fdb_kv_set_blob(&ota_kvdb, OTA_KV_BLOB_CURRENT_VERSION, 
+		fdb_blob_make(&blob, current_version, sizeof(ota_img_vs_t)));
     if ( result != FDB_NO_ERR) {
 		return FDB_WRITE_ERR;
 	}
 
-    read_len = fdb_kv_get_blob(&ota_kvdb, OTA_KV_BLOB_NEW_VERSION, 
-    	fdb_blob_make(&blob, new_version, sizeof(ota_img_vs_t)));
-    if( blob.saved.len != 0 || read_len != 0) {
+    read_len = fdb_kv_get_blob(&ota_kvdb, OTA_KV_BLOB_CURRENT_VERSION, 
+    	fdb_blob_make(&blob, &readback_version, sizeof(ota_img_vs_t)));
+    if( read_len != sizeof(ota_img_vs_t) || 
+		memcmp(current_version,&readback_version, sizeof(ota_img_vs_t)) ) {
 		return FDB_READ_ERR;
 	}
 
     return FDB_NO_ERR;
 }
+
+
+ota_err_t ota_info_new_version_update(ota_img_vs_t *new_version)
+{
+    fdb_err_t result = FDB_NO_ERR;
+    size_t read_len;
+    struct fdb_blob blob;
+	ota_img_vs_t readback_version;
+
+    result = fdb_kv_set_blob(&ota_kvdb, OTA_KV_BLOB_NEW_VERSION, 
+		fdb_blob_make(&blob, new_version, sizeof(ota_img_vs_t)));
+    if ( result != FDB_NO_ERR) {
+		return FDB_WRITE_ERR;
+	}
+
+    read_len = fdb_kv_get_blob(&ota_kvdb, OTA_KV_BLOB_NEW_VERSION, 
+    	fdb_blob_make(&blob, &readback_version, sizeof(ota_img_vs_t)));
+    if( read_len != sizeof(ota_img_vs_t) || 
+		memcmp(new_version,&readback_version, sizeof(ota_img_vs_t)) ) {
+		return FDB_READ_ERR;
+	}
+
+    return FDB_NO_ERR;
+}
+
+
 
 
 /* default:OTA_UPDATE_IN_POSITION */
